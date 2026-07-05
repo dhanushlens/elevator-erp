@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-surface-light text-slate-800 antialiased dark:bg-surface-dark dark:text-slate-200;
+  background-image: radial-gradient(1200px 600px at 10% -10%, rgba(47, 197, 188, 0.1), transparent),
+    radial-gradient(1000px 500px at 110% 10%, rgba(92, 222, 210, 0.08), transparent);
+  background-attachment: fixed;
+}
+
+.glass {
+  @apply border border-white/50 bg-white/70 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/60;
+}
+
+.card {
+  @apply glass rounded-xl3 shadow-soft transition-shadow duration-300;
+}
+
+.card-hover {
+  @apply hover:-translate-y-0.5 hover:shadow-lift transition-all duration-300;
+}
+
+.input {
+  @apply w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 text-sm outline-none transition-all placeholder:text-slate-400 focus:border-aqua-400 focus:ring-4 focus:ring-aqua-400/20 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100;
+}
+
+.label {
+  @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-aqua-gradient px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-60;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white/70 px-4 py-2.5 text-sm font-medium text-slate-700 transition-all hover:bg-white hover:shadow-soft active:scale-[0.98] dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200 dark:hover:bg-slate-800;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+}
+
+.skeleton {
+  @apply animate-pulse rounded-2xl bg-slate-200/70 dark:bg-slate-700/50;
+}
+
+.table-sticky thead th {
+  @apply sticky top-0 z-10 bg-white/90 backdrop-blur dark:bg-slate-900/90;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-300 dark:bg-slate-700;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+}
